@@ -1,39 +1,37 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
 
-const initialState = {
-    projectdeleted: false,
-    loading: false,
-    deletedproject: []
+export const initialState = {
+    projectUpdated: false
 }
 
-export const DeletedProject = createSlice({
-    name: "deleted-project",
+const updateSlice = createSlice({
+    name: 'projects',
     initialState,
     reducers: {
-        deleteProject: state => {
-            state.loading = true
+        updateProject: state => {
+            state.projectUpdated = true
         },
-        deleteProjectSuccess: (state, {payload}) => {
-            state.projectdeleted = true
-            state.deletedproject = payload
-        },
-        deleteProjectError: state => {
-            state.projectdeleted = false
-        }
     },
 })
 
-export const DeleteSelector = state => state.deletedproject
-export const {deleteProject, deleteProjectSuccess, deleteProjectError} = DeletedProject.actions
-export default DeletedProject.reducer
+export const {updateProject} = updateSlice.actions
+export const UpdateSelector = state => state.updatedproject
+export default updateSlice.reducer
 
-export function DeleteProjectAPI({id}) {
+export const updateAPI = (id, project) => {
     return async dispatch => {
-        dispatch(deleteProject())
     try {
-        const deletedProject = await fetch(`http://localhost:8080/api/project/${id}`, {method: "DELETE"})
+        const updatingproject = await fetch(`http://localhost:8080/api/project/${id}`, 
+        {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(project)
+          })
+        dispatch(updateProject())
     } catch (error) {
-        dispatch(deleteProjectError())
+        console.error(error)
     }
-}}
+}
+}

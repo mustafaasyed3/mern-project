@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { fetchProjects, ProjectsSelector } from '../../slices/ProjectSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { DeleteProjectAPI } from '../../slices/UpdateProject'
+import { DeleteProjectAPI } from '../../slices/DeleteProject'
+import { handleEdit, initialFormState } from './ProjectPostForm'
 
 
-export default function Project() {
+export default function Project(props) {
+
     const dispatch = useDispatch()
     const {projects, projectsloaded, loadingerror} = useSelector(ProjectsSelector)
     useEffect(() => {
@@ -14,6 +16,8 @@ export default function Project() {
         await dispatch(DeleteProjectAPI({id}))
         await dispatch(fetchProjects())
     }
+
+    
     const showingProjects = () => {
         if (projectsloaded) return <p>Projects are currently being processed</p>
         if (loadingerror) return <p>There are errors loading the projects</p>
@@ -34,7 +38,7 @@ export default function Project() {
                     <td>{project.ProjectMembers}</td>
                     <td>{project.ProjectTeam}</td>
                     <td>
-                        <button className="button muted-button">Edit</button>
+                        <button className="button muted-button" onClick={() => {props.editProject(project)}}>Edit</button>
                         <button className="button muted-button" onClick={() => handleDelete(project._id)}>Delete</button>
                     </td>
                     </tr>)}

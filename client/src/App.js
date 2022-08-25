@@ -8,14 +8,15 @@ import projectsReducer from './slices/ProjectSlice'
 import PostProjectSliceReducer from './slices/ProjectPostSlice';
 import ProjectPostForm from './view/component/ProjectPostForm';
 import ProjectPage from './view/component/ProjectPage';
-import DeletedProjectReducer from './slices/UpdateProject'
-
+import DeletedProjectReducer from './slices/DeleteProject'
+import updateSliceReducer from './slices/UpdateProject'
 
 
 export const rootReducer = combineReducers({
   projects: projectsReducer,
   postedprojects: PostProjectSliceReducer,
   deletedprojects: DeletedProjectReducer,
+  updateproject: updateSliceReducer,
 })
 
 function App() {

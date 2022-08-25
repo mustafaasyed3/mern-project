@@ -3,15 +3,15 @@ import { PostProjectAPI, PostSelector } from '../../slices/ProjectPostSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProjects } from '../../slices/ProjectSlice'
 
-export default function ProjectPostForm() {
-    const dispatch = useDispatch()
-    const {projectposted, addedProjects} = useSelector(PostSelector)
-
-    const initialFormState = {
+export const initialFormState = {
     ProjectName: "",
     ProjectDescription: "",
     ProjectMembers: 0,
     ProjectTeam: ""}
+
+export default function ProjectPostForm() {    
+    const dispatch = useDispatch()
+    const {projectposted, addedProjects} = useSelector(PostSelector)
 
     const [userData, setData]  = useState(initialFormState)
 
