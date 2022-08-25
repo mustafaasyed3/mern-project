@@ -12,7 +12,16 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.navbar a{
+  padding: 15px;
+  text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 24px;
+}
+.navbar{
+  background-color: grey;
+  padding: 25px;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,6 +31,43 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.Project-Table{
+  margin: 20px;
+  padding: 5px;
+  border: #282c34 solid;
+}
+
+.Project-Table th{
+  padding: 5px;
+}
+.Project-Table td{
+  padding: 5px;
+}
+.Dashboard-Section{
+  padding: 15px;
+}
+
+.button{
+  text-decoration: none;
+  background-color: blue;
+  padding: 10px;
+  color: aliceblue;
+}
+
+.Posting-Form{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-color: black;
+  border-style: solid;
+  margin: 40px;
+  width: 500px;
+}
+.Posting-Form input{
+  margin-left: 5px;
 }
 
 .App-link {

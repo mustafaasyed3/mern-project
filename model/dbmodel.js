@@ -15,11 +15,10 @@ export const ProjectsSchema = new Schema({
         type: Number,
         required: true
     },
-    ProjectTeam: [{
+    ProjectTeam: {
         type: String,
-        name: String,
         required: true
-    }] 
+    } 
 })
 
 
