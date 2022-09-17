@@ -1,14 +1,18 @@
 pipeline{
     agent any
+    tools{
 
+    }
     stages{
         stage("Build"){
             steps{
+                nodejs("Node"){
                 echo "downloading backend dependencies"
                 sh "npm install"
                 echo "downloading backend dependencies"
                 sh "cd client"
                 sh "npm install"
+                }
             }
         }
         stage("Test"){
