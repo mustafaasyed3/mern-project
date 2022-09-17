@@ -50,4 +50,5 @@ pipeline{
             sh "docker push"
         }
     }
+}
 } 
