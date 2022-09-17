@@ -24,9 +24,9 @@ pipeline{
         stage("Deploy"){
             steps{
                 echo "creating backend image"
-                sh "docker build -t ${BUILD_NUMBER} ."
+                sh "docker build -t mustafaapp/mern-project:backend${BUILD_NUMBER} ."
                 echo "creating frontend image"
-                sh "docker build -t ${BUILD_NUMBER} /client"
+                sh "docker build -t mustafaapp/mern-project:frontend${BUILD_NUMBER} /client"
             }
         }
     }
