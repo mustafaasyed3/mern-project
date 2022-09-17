@@ -14,19 +14,23 @@ pipeline{
         }
         stage("Test"){
             steps{
+                nodejs("Node"){
                 echo "running backend tests"
                 sh "npm test"
                 echo "running frontend tests"
                 sh "cd client"
                 sh "npm test"
+                }
             }
         }
         stage("Deploy"){
             steps{
+                nodejs("Node"){
                 echo "creating backend image"
                 sh "docker build -t ${BUILD_NUMBER} ."
                 echo "creating frontend image"
                 sh "docker build -t ${BUILD_NUMBER} /client"
+                }
             }
         }
     }
