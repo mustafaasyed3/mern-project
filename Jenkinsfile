@@ -1,6 +1,11 @@
 pipeline{
     agent any
     stages{
+        stage("Obtaining Git Repo in Jenkins"){
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mustafaasyed3/mern-project.git']]])
+            }
+        }
         stage("Build"){
             steps{
                 nodejs("Node"){
