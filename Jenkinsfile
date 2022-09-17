@@ -26,6 +26,7 @@ pipeline{
                 sh "npm test"
                 }
                 }
+                }
             }
         }
         stage("Deploy"){
