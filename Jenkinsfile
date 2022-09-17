@@ -23,13 +23,11 @@ pipeline{
         }
         stage("Deploy"){
             steps{
-                docker("Docker"){
                 echo "creating backend image"
                 // sh "docker build -t mustafaapp/mern-project:backend${BUILD_NUMBER} ."
                 sh "docker -v"
                 echo "creating frontend image"
                 // sh "docker build -t mustafaapp/mern-project:frontend${BUILD_NUMBER} /client"
-            }
             }
         }
     }
