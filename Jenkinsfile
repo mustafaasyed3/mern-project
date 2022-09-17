@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent {dockerfile true}
     stages{
         stage("Build"){
             steps{
@@ -24,7 +24,7 @@ pipeline{
         stage("Deploy"){
             steps{
                 echo "creating backend image"
-                sh "docker build -t ${BUILD_NUMBER} .."
+                sh "docker build -t ${BUILD_NUMBER} ."
                 echo "creating frontend image"
                 sh "docker build -t ${BUILD_NUMBER} /client"
             }
@@ -36,4 +36,4 @@ pipeline{
             sh "docker push"
         }
     }
-}
+} 
