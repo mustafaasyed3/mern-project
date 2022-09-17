@@ -23,7 +23,7 @@ pipeline{
         }
         stage("Deploy"){
             steps{
-                Docker("Docker"){
+                docker("Docker"){
                 echo "creating backend image"
                 // sh "docker build -t mustafaapp/mern-project:backend${BUILD_NUMBER} ."
                 sh "docker -v"
