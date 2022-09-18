@@ -21,4 +21,3 @@ jobs:
     - name: Pushing to Docker Hub 
       run: docker push mustafaapp/mernproject
 
-#test run
