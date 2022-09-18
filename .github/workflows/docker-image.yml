@@ -21,7 +21,8 @@ jobs:
     - name: Build Frontend Image
       run: docker build client --file Dockerfile --tag mustafaapp/mern-project:frontend$(date +%s)
     - name: Pushing to Docker Hub Backend
-      run: docker push mustafaapp/mernproject:backend$(date +%s)
+      # run: docker push mustafaapp/mernproject:backend$(date +%s)
+      run: docker images
     - name: Pushing to Docker Hub Frontend
       run: docker push mustafaapp/mernproject:frontend$(date +%s)
 
