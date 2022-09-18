@@ -16,8 +16,9 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Backend image
       run: docker build . --file Dockerfile --tag mustafaapp/mern-project:backednd$(date +%s)
-    - name: Build Frontend Image
+    - name: Change directory
       run: cd client
+    - name: Build Frontend Image
       run: docker build --file Dockerfile --tag mustafaapp/mern-project:frontend$(date +%s)
     - name: Pushing to Docker Hub
       run: docker push
