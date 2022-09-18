@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Backend image
-      run: docker build . --file Dockerfile --tag mustafaapp/mern-project:backednd$(date +%s)
+      run: docker build . --file Dockerfile --tag mustafaapp/mern-project:backend$(date +%s)
     # - name: Change directory
     #   run: cd client
     - name: Build Frontend Image
