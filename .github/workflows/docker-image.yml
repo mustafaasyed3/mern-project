@@ -14,10 +14,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    # - name: Build the Backend image
-    #   run: docker build . --file Dockerfile --tag mustafaapp/mern-project:backend$(date +%s)
-    # - name: Build Frontend Image
-    #   run: docker build client --file Dockerfile --tag mustafaapp/mern-project:frontend$(date +%s)
+    - name: Build the Backend image
+      run: docker build . --file Dockerfile --tag mustafaapp/mern-project:backend$(date +%s)
+    - name: Build Frontend Image
+      run: docker build client --file Dockerfile --tag mustafaapp/mern-project:frontend$(date +%s)
     - name: Pushing to Docker Hub 
       run: docker push mustafaapp/mernproject
 
