@@ -20,9 +20,9 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     - name: Build the Backend image
-      run: docker build . --file Dockerfile --tag mustafaapp/mern-project:backend$(date +%s)
+      run: docker build . --load --file Dockerfile --tag mustafaapp/mern-project:backend$(date +%s)
     - name: Build Frontend Image
-      run: docker build client --file Dockerfile --tag mustafaapp/mern-project:frontend$(date +%s)
+      run: docker build client --load --file Dockerfile --tag mustafaapp/mern-project:frontend$(date +%s)
     - name: Pushing to Docker Hub Backend
       run: docker push ${{secrets.DOCKER_USERNAME}}/mern-project:backend$(date +%s)
     - name: Pushing to Docker Hub Frontend
