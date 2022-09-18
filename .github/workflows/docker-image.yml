@@ -22,14 +22,14 @@ jobs:
           password: ${{secrets.DOCKER_TOKEN}}
           logout: false
     -
-        name: Build and push
+        name: Build and push Backend
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
           tags: mustafaapp/mern-project:backend
     -
-        name: Build and push
+        name: Build and push Frontend
         uses: docker/build-push-action@v3
         with:
           context: client
